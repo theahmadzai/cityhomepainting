@@ -1,20 +1,25 @@
-/** @jsx jsx */
-import { jsx, useThemeUI, Grid, Box, Heading } from 'theme-ui'
-import { StaticImage } from 'gatsby-plugin-image'
-import Layout from '../components/layout'
+import React from 'react'
+import { Typography } from 'antd'
+import Layout from '../components/layout/layout'
+
+const { Title, Paragraph } = Typography
 
 const IndexPage = () => {
-  const { theme } = useThemeUI()
-
   return (
     <Layout>
-      <Grid marginTop={4} columns={[1, '1fr 3fr']}>
-        <Box p={2}>
-          <Heading as="h1" sx={{ fontSize: '1.5rem' }}>
-            City Home Painting
-          </Heading>
-        </Box>
-      </Grid>
+      <Title level={2}>CityHome Painting</Title>
+
+      <Paragraph align="justify">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse nostrum
+        earum delectus eaque neque est itaque eos autem porro facere illo illum
+        distinctio odio, iure, dolor qui quia architecto quisquam.
+      </Paragraph>
+
+      <Paragraph align="justify">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse nostrum
+        earum delectus eaque neque est itaque eos autem porro facere illo illum
+        distinctio odio, iure, dolor qui quia architecto quisquam.
+      </Paragraph>
     </Layout>
   )
 }

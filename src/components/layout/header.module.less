@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  background: #fff;
+  z-index: 3000;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem 0.5rem;
+
+  @media screen and (min-width: 768px) {
+    position: sticky;
+    top: 0;
+    padding: 0.5rem calc((100vw - 1000px) / 2);
+  }
+}
+
+.toggleNav {
+  display: block;
+  font-size: 1.5rem;
+
+  @media screen and (min-width: 768px) {
+    display: none !important;
+  }
+}
+
+.navMobile {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.navDesktop {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+}

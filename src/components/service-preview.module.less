@@ -1,0 +1,75 @@
+@keyframes animate {
+  0% {
+    background-position: 0 100%, 0 0, 0 100%, 100% 0;
+    background-size: 3px 0%, 100% 3px, 0% 3px, 3px 0%;
+  }
+  40% {
+    background-position: 0 100%, 100% 0, 100% 100%, 100% 0;
+    background-size: 3px 0%, 100% 3px, 0% 3px, 3px 100%;
+  }
+  60% {
+    background-position: 0 100%, 100% 0, 100% 100%, 100% 100%;
+    background-size: 3px 0%, 0% 3px, 100% 3px, 3px 100%;
+  }
+  70% {
+    background-position: 0 100%, 100% 0, 0% 100%, 100% 100%;
+    background-size: 3px 100%, 0% 3px, 100% 3px, 3px 0%;
+  }
+  80% {
+    background-position: 0% 0%, 0% 0, 0% 100%, 100% 100%;
+    background-size: 3px 100%, 0% 3px, 0% 3px, 3px 0%;
+  }
+  100% {
+    background-position: 0% 0%, 0 0, 0 100%, 100% 100%;
+    background-size: 3px 0%, 100% 3px, 0% 3px, 3px 0%;
+  }
+}
+
+.image {
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.rating {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 300;
+  font-size: 0.95rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem !important;
+}
+
+.card {
+  overflow: hidden;
+  position: relative;
+  background-image: linear-gradient(var(--primary-color), var(--primary-color)),
+    linear-gradient(var(--primary-color), var(--primary-color)),
+    linear-gradient(var(--secondary-color), var(--primary-color)),
+    linear-gradient(var(--primary-color), var(--secondary-color));
+  background-position: 0 0, 0 0, 0 100%, 0 100%;
+  background-size: 3px 0%, 0% 3px, 0% 3px, 3px 0%;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  transition: 0.2s linear;
+
+  &:hover {
+    background-position: 0 100%, 0 0, 0 100%, 100% 0;
+    background-size: 3px 0%, 100% 3px, 0% 3px, 3px 0%;
+    animation: animate 1.4s linear infinite 0.2s;
+
+    .image {
+      filter: grayscale(30%);
+      transition: filter 400ms ease-in-out;
+    }
+
+    .meta {
+      padding: 0 1rem;
+      transition: padding 400ms ease;
+    }
+  }
+}

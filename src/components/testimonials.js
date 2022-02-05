@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Row, Col } from 'antd'
+import { Rate, Row, Col } from 'antd'
+import { StarFilled } from '@ant-design/icons'
 import useTestimonials from '../hooks/use-testimonials.js'
 import * as styles from './testimonials.module.less'
 
@@ -55,7 +56,16 @@ export default function Testimonials() {
               image={getImage(curr.image)}
               alt={curr.name}
             />
+
             <blockquote>{curr.message.message}</blockquote>
+
+            <Rate
+              count={5}
+              defaultValue={5}
+              style={{ color: '#333', marginBottom: '1rem' }}
+              disabled
+            />
+
             <p>
               <strong>- {curr.name} -</strong>
             </p>

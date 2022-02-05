@@ -23,7 +23,6 @@ module.exports = {
         trackingId: 'nil',
       },
     },
-    'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
@@ -40,6 +39,7 @@ module.exports = {
         spaceId: 'x6orn6luc2x1',
       },
     },
+    'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
@@ -55,7 +55,7 @@ module.exports = {
         lessOptions: {
           javascriptEnabled: true,
           modifyVars: {
-            '@primary-color': '#29b0fa',
+            '@primary-color': '#663299',
             '@font-size-base': '18px',
             '@font-family': 'Work Sans',
           },

@@ -3,7 +3,7 @@ import { Row, Col, Form, Input, Button, Upload } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
 import Success from './success'
 import Error from './error'
-import styles from './estimate-form.module.less'
+import * as styles from './estimate-form.module.less'
 
 const { Item } = Form
 const { TextArea } = Input
@@ -43,6 +43,7 @@ export default function QuoteForm() {
       onFinish={handleFinish}
       scrollToFirstError
       noValidate
+      style={{ marginBottom: '2rem' }}
     >
       <Row gutter={32}>
         <Col span={24} md={12}>

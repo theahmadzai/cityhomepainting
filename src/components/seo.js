@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import useSiteMetadata from '../hooks/use-sitemetadata'
 
 export default function SEO({ title, description, pathname }) {

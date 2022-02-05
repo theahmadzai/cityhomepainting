@@ -1,0 +1,49 @@
+:root {
+  --primary-color: hsl(270, 51%, 40%);
+  --secondary-color: hsl(270, 100%, 76%);
+}
+
+.pageTitleBackground {
+  background-position: center;
+  background-size: cover;
+  height: 30vh;
+  filter: grayscale(40%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pageTitle {
+  padding: 1.5rem 3rem;
+  color: #fff !important;
+  text-align: center;
+  position: relative;
+
+  &::after {
+    content: '';
+    left: 50%;
+    top: calc(50% + 5rem);
+    height: 4px;
+    background: #fff;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 60%;
+
+    @media screen and (min-width: 768px) {
+      top: calc(50% + 3.5rem);
+    }
+  }
+}
+
+.heading {
+  margin-top: 2rem;
+  font-weight: 400 !important;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px dashed var(--primary-color);
+}
+
+.servicesDescriptionText {
+  margin-top: 2rem;
+  text-align: justify;
+  text-align-last: center;
+}

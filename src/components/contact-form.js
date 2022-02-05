@@ -3,7 +3,7 @@ import { Form, Input, Button } from 'antd'
 import { UserOutlined, PhoneOutlined, MailOutlined } from '@ant-design/icons'
 import Success from './success'
 import Error from './error'
-import styles from './contact-form.module.less'
+import * as styles from './contact-form.module.less'
 
 const { Item } = Form
 const { TextArea } = Input

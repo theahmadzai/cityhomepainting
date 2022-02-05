@@ -2,13 +2,13 @@ import React from 'react'
 import { Row, Col, Typography } from 'antd'
 import {
   PhoneOutlined,
+  WhatsAppOutlined,
   MailOutlined,
   FacebookOutlined,
   TwitterOutlined,
   InstagramOutlined,
 } from '@ant-design/icons'
 import useSiteMetadata from '../../hooks/use-sitemetadata'
-import FooterCurve from '../svgs/footer-curve'
 import * as styles from './footer.module.less'
 
 const { Title, Paragraph } = Typography
@@ -17,8 +17,8 @@ export default function Footer() {
   const { title, description, contacts, social } = useSiteMetadata()
 
   return (
-    <>
-      <footer className={styles.footer}>
+    <footer>
+      <div className={styles.footer}>
         <Row gutter={24} className={styles.footerItems}>
           <Col span={24} md={8} className={styles.footerItem}>
             <Title level={3}>Company</Title>
@@ -29,6 +29,11 @@ export default function Footer() {
             <Title level={3}>Contact Info</Title>
             <Paragraph>
               <PhoneOutlined title="Phone" />
+              &nbsp;&nbsp;
+              {contacts.phone}
+            </Paragraph>
+            <Paragraph>
+              <WhatsAppOutlined title="Whatsapp" />
               &nbsp;&nbsp;
               {contacts.phone}
             </Paragraph>
@@ -58,14 +63,12 @@ export default function Footer() {
             </div>
           </Col>
         </Row>
-
-        <div className={styles.copyrights}>
-          <span>
-            &copy; Copyright {new Date().getFullYear()} - {title}
-          </span>
-        </div>
-      </footer>
-      {/* <FooterCurve /> */}
-    </>
+      </div>
+      <div className={styles.copyrights}>
+        <span>
+          &copy; Copyright {new Date().getFullYear()} - {title}
+        </span>
+      </div>
+    </footer>
   )
 }

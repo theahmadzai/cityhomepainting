@@ -1,0 +1,44 @@
+.testimonials {
+  background: var(--primary-color);
+  padding: 2rem 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .testimonials {
+    padding: 3rem;
+  }
+}
+
+.control {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto;
+  border-radius: 100%;
+  border: 3px solid #fff;
+  transition: all 100ms ease;
+  cursor: pointer;
+}
+
+.control:hover {
+  box-shadow: 0 0 60px 10px darken(hsl(270, 51%, 40%), 15%);
+  height: 125px;
+  width: 125px;
+}
+
+.testimonial {
+  background: #fff;
+  box-shadow: 0 6px 35px 3px darken(hsl(270, 51%, 40%), 15%);
+  position: relative;
+  text-align: center;
+  padding: 1.5rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.image {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 1rem auto;
+  border-radius: 100%;
+  border: 3px solid var(--primary-color);
+}

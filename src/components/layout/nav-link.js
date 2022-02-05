@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import * as styles from './nav-link.module.less'
 
-export default function NavLink({ href, children, bordered }) {
+const NavLink = ({ href, children, bordered }) => {
   return (
     <Link
       to={href}
@@ -13,3 +13,5 @@ export default function NavLink({ href, children, bordered }) {
     </Link>
   )
 }
+
+export default NavLink

@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
-export default function useTestimonials() {
+const useTestimonials = () => {
   const data = useStaticQuery(graphql`
     query {
       allContentfulTestimonial {
@@ -26,3 +26,5 @@ export default function useTestimonials() {
 
   return data.allContentfulTestimonial.nodes
 }
+
+export default useTestimonials

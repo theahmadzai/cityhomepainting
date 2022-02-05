@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import useSiteMetadata from '../hooks/use-sitemetadata'
 
-export default function SEO({ title, description, pathname }) {
+const SEO = ({ title, description, pathname }) => {
   const {
     title: defaultTitle,
     description: defaultDescription,
@@ -33,3 +33,5 @@ export default function SEO({ title, description, pathname }) {
     />
   )
 }
+
+export default SEO

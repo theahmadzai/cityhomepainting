@@ -5,7 +5,7 @@ import Header from './header'
 import Footer from './footer'
 import * as styles from './layout.module.less'
 
-export default function Layout({ children, ...props }) {
+const Layout = ({ children, ...props }) => {
   return (
     <>
       <Helmet>
@@ -23,3 +23,5 @@ export default function Layout({ children, ...props }) {
     </>
   )
 }
+
+export default Layout

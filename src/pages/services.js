@@ -10,7 +10,7 @@ import ServicePreview from '../components/service-preview'
 
 const { Title, Paragraph } = Typography
 
-export default function ServicesPage() {
+const ServicesPage = () => {
   const { servicesImage } = useStaticQuery(graphql`
     query {
       servicesImage: file(relativePath: { eq: "services.jpg" }) {
@@ -69,3 +69,5 @@ export default function ServicesPage() {
     </Layout>
   )
 }
+
+export default ServicesPage

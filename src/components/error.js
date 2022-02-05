@@ -1,7 +1,7 @@
 import React from 'react'
 import { Result, Button } from 'antd'
 
-export default function Error() {
+const Error = () => {
   return (
     <Result
       status="error"
@@ -15,3 +15,5 @@ export default function Error() {
     />
   )
 }
+
+export default Error

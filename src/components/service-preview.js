@@ -6,7 +6,7 @@ import * as styles from './service-preview.module.less'
 
 const { Paragraph } = Typography
 
-export default function ServicePreview({ slug, title, caption, image }) {
+const ServicePreview = ({ slug, title, caption, image }) => {
   return (
     <Link to={`/service/${slug}`}>
       <div className={styles.card}>
@@ -27,3 +27,5 @@ export default function ServicePreview({ slug, title, caption, image }) {
     </Link>
   )
 }
+
+export default ServicePreview

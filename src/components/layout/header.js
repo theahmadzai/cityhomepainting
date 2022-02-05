@@ -18,7 +18,7 @@ const NavLinks = props => (
   </nav>
 )
 
-export default function Header() {
+const Header = () => {
   const { name, title } = useSiteMetadata()
   const [visible, setVisible] = useState(false)
 
@@ -46,3 +46,5 @@ export default function Header() {
     </header>
   )
 }
+
+export default Header

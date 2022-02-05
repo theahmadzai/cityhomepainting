@@ -1,7 +1,7 @@
 import React from 'react'
 import { Result, Button } from 'antd'
 
-export default function Success() {
+const Success = () => {
   return (
     <Result
       status="success"
@@ -15,3 +15,5 @@ export default function Success() {
     />
   )
 }
+
+export default Success

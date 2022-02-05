@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Form, Input, Button } from 'antd'
-import { UserOutlined, PhoneOutlined, MailOutlined } from '@ant-design/icons'
 import Success from './success'
 import Error from './error'
 import * as styles from './contact-form.module.less'
@@ -8,7 +7,7 @@ import * as styles from './contact-form.module.less'
 const { Item } = Form
 const { TextArea } = Input
 
-export default function ContactForm() {
+const ContactForm = () => {
   const [formStatus, setFormStatus] = useState(0)
 
   const handleFinish = values => {
@@ -46,11 +45,7 @@ export default function ContactForm() {
           },
         ]}
       >
-        <Input
-          type="text"
-          placeholder="John Doe"
-          prefix={<UserOutlined className={styles.icon} />}
-        />
+        <Input type="text" placeholder="John Doe" />
       </Item>
 
       <Item
@@ -67,19 +62,11 @@ export default function ContactForm() {
           },
         ]}
       >
-        <Input
-          type="email"
-          placeholder="john@example.com"
-          prefix={<MailOutlined className={styles.icon} />}
-        />
+        <Input type="email" placeholder="john@example.com" />
       </Item>
 
       <Item label="Phone" name="phone">
-        <Input
-          type="tel"
-          placeholder="+123********"
-          prefix={<PhoneOutlined className={styles.icon} />}
-        />
+        <Input type="tel" placeholder="+123********" />
       </Item>
 
       <Item
@@ -99,3 +86,5 @@ export default function ContactForm() {
     </Form>
   )
 }
+
+export default ContactForm

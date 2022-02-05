@@ -13,7 +13,7 @@ import * as styles from './footer.module.less'
 
 const { Title, Paragraph } = Typography
 
-export default function Footer() {
+const Footer = () => {
   const { title, description, contacts, social } = useSiteMetadata()
 
   return (
@@ -72,3 +72,5 @@ export default function Footer() {
     </footer>
   )
 }
+
+export default Footer

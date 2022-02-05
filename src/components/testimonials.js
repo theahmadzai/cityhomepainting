@@ -1,7 +1,6 @@
 import React, { useReducer } from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Rate, Row, Col } from 'antd'
-import { StarFilled } from '@ant-design/icons'
 import useTestimonials from '../hooks/use-testimonials.js'
 import * as styles from './testimonials.module.less'
 
@@ -18,7 +17,7 @@ const selectedTestimonialReducer = ({ prev, curr, next }, action) => {
   }
 }
 
-export default function Testimonials() {
+const Testimonials = () => {
   const testimonials = useTestimonials()
   totalTestimonials = testimonials.length
 
@@ -83,3 +82,5 @@ export default function Testimonials() {
     </div>
   )
 }
+
+export default Testimonials

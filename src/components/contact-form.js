@@ -7,24 +7,36 @@ import * as styles from './contact-form.module.less'
 const { Item } = Form
 const { TextArea } = Input
 
-const ContactForm = () => {
-  const [formStatus, setFormStatus] = useState(0)
+const formStatuses = {
+  IDLE: 0,
+  SUBMITTING: 1,
+  SUCCESS: 2,
+  ERROR: 3,
+}
 
-  const handleFinish = values => {
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({
-        'form-name': 'contact',
-        ...values,
-      }).toString(),
-    })
-      .then(() => setFormStatus(1))
-      .catch(() => setFormStatus(-1))
+const ContactForm = () => {
+  const [formStatus, setFormStatus] = useState(formStatuses.IDLE)
+
+  const handleFinish = async values => {
+    setFormStatus(formStatuses.SUBMITTING)
+
+    try {
+      await fetch('/.netlify/functions/contact-form', {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      setFormStatus(formStatuses.SUCCESS)
+    } catch (err) {
+      setFormStatus(formStatuses.ERROR)
+    }
   }
 
-  if (formStatus === 1) return <Success />
-  else if (formStatus === -1) return <Error />
+  if (formStatus === formStatuses.SUCCESS) return <Success />
+  else if (formStatus === formStatuses.ERROR) return <Error />
 
   return (
     <Form
@@ -72,14 +84,22 @@ const ContactForm = () => {
       <Item
         label="Message"
         name="message"
-        rules={[{ required: true, message: 'Please type a brief message!' }]}
-        required
+        rules={[
+          {
+            required: true,
+            message: 'Please type a brief message!',
+          },
+        ]}
       >
         <TextArea placeholder="Your message..." rows={5} />
       </Item>
 
       <Item>
-        <Button type="ghost" htmlType="submit">
+        <Button
+          type="ghost"
+          htmlType="submit"
+          loading={formStatus === formStatuses.SUBMITTING}
+        >
           Submit
         </Button>
       </Item>

@@ -18,7 +18,7 @@ const ServicePreview = ({ slug, title, caption, image }) => {
         <div className={styles.meta}>
           <div className={styles.rating}>
             <Rate count={1} defaultValue={5} disabled />
-            &nbsp;{5} Review{5 === 1 ? '' : 's'}
+            &nbsp;{5} Reviews
           </div>
           <Paragraph className={styles.title}>{title}</Paragraph>
           <Paragraph type="secondary">{caption}</Paragraph>

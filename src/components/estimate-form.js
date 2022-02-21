@@ -8,34 +8,46 @@ import * as styles from './estimate-form.module.less'
 const { Item } = Form
 const { TextArea } = Input
 
-const EstimateForm = () => {
-  const [formStatus, setFormStatus] = useState(0)
-  const [images, setImages] = useState([])
+const formStatuses = {
+  IDLE: 0,
+  SUBMITTING: 1,
+  SUCCESS: 2,
+  ERROR: 3,
+}
 
-  const handleImagesUploaded = info => {
-    setImages(info.fileList)
+const EstimateForm = () => {
+  const [formStatus, setFormStatus] = useState(formStatuses.IDLE)
+  const [fileList, setFileList] = useState([])
+
+  const onChange = ({ fileList: newFileList }) => {
+    setFileList(newFileList)
   }
 
-  const handleFinish = values => {
+  const handleFinish = async values => {
+    setFormStatus(formStatuses.SUBMITTING)
+
     const formData = new FormData()
 
     Object.entries(values).forEach(([k, v]) => formData.append(k, v))
-    images.forEach(image => formData.append('images', image.originFileObj))
+    fileList.forEach(file => formData.append('files', file.originFileObj))
 
-    fetch('/.netlify/functions/send-estimate', {
-      method: 'POST',
-      body: formData,
-    })
-      .then(() => setFormStatus(1))
-      .catch(() => setFormStatus(-1))
+    try {
+      fetch('/.netlify/functions/estimate-form', {
+        method: 'POST',
+        body: formData,
+      })
+
+      setFormStatus(formStatuses.SUCCESS)
+    } catch (err) {
+      setFormStatus(formStatuses.ERROR)
+    }
   }
 
-  if (formStatus === 1) return <Success />
-  else if (formStatus === -1) return <Error />
+  if (formStatus === formStatuses.SUCCESS) return <Success />
+  else if (formStatus === formStatuses.ERROR) return <Error />
 
   return (
     <Form
-      action="/"
       className={styles.form}
       layout="vertical"
       size="large"
@@ -197,25 +209,32 @@ const EstimateForm = () => {
           },
         ]}
       >
-        <TextArea rows={6} placeholder="Additional details..." />
+        <TextArea rows={4} placeholder="Additional details..." />
       </Item>
 
       <Item>
         <Upload
           name="image"
           listType="picture-card"
-          onChange={handleImagesUploaded}
+          fileList={fileList}
+          onChange={onChange}
+          onPreview={() => void 0}
+          customRequest={({ onSuccess, file }) => onSuccess(null, file)}
           multiple
         >
           <div>
             <PlusOutlined />
-            <div style={{ marginTop: 8 }}>Upload</div>
+            <div style={{ marginTop: 8 }}>Media</div>
           </div>
         </Upload>
       </Item>
 
       <Item>
-        <Button type="ghost" htmlType="submit">
+        <Button
+          type="ghost"
+          htmlType="submit"
+          loading={formStatus === formStatuses.SUBMITTING}
+        >
           Submit
         </Button>
       </Item>

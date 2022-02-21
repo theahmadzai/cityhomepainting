@@ -32,7 +32,7 @@ const EstimateForm = () => {
     fileList.forEach(file => formData.append('files', file.originFileObj))
 
     try {
-      fetch('/.netlify/functions/estimate-form', {
+      await fetch('/.netlify/functions/estimate-form', {
         method: 'POST',
         body: formData,
       })

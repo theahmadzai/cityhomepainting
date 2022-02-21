@@ -18,6 +18,7 @@ exports.handler = async event => {
       }
     }
 
+    console.log('HERE')
     await mailer.sendMail({
       from: `"CityHome Painting" <info@cityhomepainting.com>`,
       to: 'info@cityhomepainting.com',
@@ -36,7 +37,6 @@ exports.handler = async event => {
       body: JSON.stringify({ message: 'Message sent.' }),
     }
   } catch (err) {
-    console.log(err)
     return {
       statusCode: 500,
       body: err.toString(),

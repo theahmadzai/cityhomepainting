@@ -18,7 +18,6 @@ exports.handler = async event => {
       }
     }
 
-    console.log('HERE')
     await mailer.sendMail({
       from: `"CityHome Painting" <info@cityhomepainting.com>`,
       to: 'info@cityhomepainting.com',

@@ -8,7 +8,7 @@ const { Paragraph } = Typography
 
 const ServicePreview = ({ slug, title, caption, image }) => {
   return (
-    <Link to={`/service/${slug}`}>
+    <Link to={`/services/${slug}`}>
       <div className={styles.card}>
         <GatsbyImage
           image={getImage(image)}

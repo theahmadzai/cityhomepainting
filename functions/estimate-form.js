@@ -66,9 +66,6 @@ exports.handler = async event => {
       body: JSON.stringify({ message: 'Message sent.' }),
     }
   } catch (err) {
-    return {
-      statusCode: 500,
-      body: err.toString(),
-    }
+    return { statusCode: 500, body: err.toString() }
   }
 }

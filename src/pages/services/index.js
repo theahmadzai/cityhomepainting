@@ -4,9 +4,9 @@ import { getImage } from 'gatsby-plugin-image'
 import BackgroundImage from 'gatsby-background-image'
 import { convertToBgImage } from 'gbimage-bridge'
 import { Row, Col, Button, Typography } from 'antd'
-import useServices from '../hooks/use-services'
-import Layout from '../components/layout/layout'
-import ServicePreview from '../components/service-preview'
+import useServices from '../../hooks/use-services'
+import Layout from '../../components/layout/layout'
+import ServicePreview from '../../components/service-preview'
 
 const { Title, Paragraph } = Typography
 
@@ -59,7 +59,7 @@ const ServicesPage = () => {
         </Button>
       </Link>
 
-      <Row gutter={[32, 32]}>
+      <Row gutter={[32, 32]} style={{ marginBottom: '2rem' }}>
         {services.map((service, i) => (
           <Col span={24} sm={12} md={8} key={i}>
             <ServicePreview {...service} />

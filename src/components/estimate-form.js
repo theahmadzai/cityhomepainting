@@ -8,7 +8,7 @@ import * as styles from './estimate-form.module.less'
 const { Item } = Form
 const { TextArea } = Input
 
-const formStatuses = {
+const formState = {
   IDLE: 0,
   SUBMITTING: 1,
   SUCCESS: 2,
@@ -16,7 +16,7 @@ const formStatuses = {
 }
 
 const EstimateForm = () => {
-  const [formStatus, setFormStatus] = useState(formStatuses.IDLE)
+  const [formStatus, setFormStatus] = useState(formState.IDLE)
   const [fileList, setFileList] = useState([])
 
   const onChange = ({ fileList: newFileList }) => {
@@ -24,7 +24,7 @@ const EstimateForm = () => {
   }
 
   const handleFinish = async values => {
-    setFormStatus(formStatuses.SUBMITTING)
+    setFormStatus(formState.SUBMITTING)
 
     const formData = new FormData()
 
@@ -37,14 +37,14 @@ const EstimateForm = () => {
         body: formData,
       })
 
-      setFormStatus(formStatuses.SUCCESS)
+      setFormStatus(formState.SUCCESS)
     } catch (err) {
-      setFormStatus(formStatuses.ERROR)
+      setFormStatus(formState.ERROR)
     }
   }
 
-  if (formStatus === formStatuses.SUCCESS) return <Success />
-  else if (formStatus === formStatuses.ERROR) return <Error />
+  if (formStatus === formState.SUCCESS) return <Success />
+  else if (formStatus === formState.ERROR) return <Error />
 
   return (
     <Form
@@ -233,7 +233,7 @@ const EstimateForm = () => {
         <Button
           type="ghost"
           htmlType="submit"
-          loading={formStatus === formStatuses.SUBMITTING}
+          loading={formStatus === formState.SUBMITTING}
         >
           Submit
         </Button>

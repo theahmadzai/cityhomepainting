@@ -2,8 +2,8 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: 'CityHome Painting',
     siteUrl: 'https://cityhomepainting.com',
+    title: 'CityHome Painting',
     description: 'CityHome Painting Description',
     address: 'CityHome Painting Address',
     contacts: {

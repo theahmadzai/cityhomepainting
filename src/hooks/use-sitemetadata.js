@@ -5,8 +5,8 @@ const useSiteMetadata = () => {
     query {
       site {
         siteMetadata {
-          title
           siteUrl
+          title
           description
           address
           contacts {

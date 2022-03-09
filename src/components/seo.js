@@ -4,9 +4,9 @@ import useSiteMetadata from '../hooks/use-sitemetadata'
 
 const SEO = ({ title, description, pathname }) => {
   const {
+    siteUrl,
     title: defaultTitle,
     description: defaultDescription,
-    siteUrl,
   } = useSiteMetadata()
 
   title ??= defaultTitle

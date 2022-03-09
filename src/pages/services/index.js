@@ -11,6 +11,7 @@ import ServicePreview from '../../components/service-preview'
 const { Title, Paragraph } = Typography
 
 const ServicesPage = () => {
+  const services = useServices()
   const { servicesImage } = useStaticQuery(graphql`
     query {
       servicesImage: file(relativePath: { eq: "services.jpg" }) {
@@ -24,7 +25,6 @@ const ServicesPage = () => {
       }
     }
   `)
-  const services = useServices()
 
   return (
     <Layout>

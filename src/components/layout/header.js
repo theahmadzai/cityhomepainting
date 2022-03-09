@@ -3,8 +3,8 @@ import { Link } from 'gatsby'
 import { Image, Drawer } from 'antd'
 import { MenuOutlined } from '@ant-design/icons'
 import NavLink from './nav-link'
-import * as styles from './header.module.less'
 import useSiteMetadata from '../../hooks/use-sitemetadata'
+import * as styles from './header.module.less'
 
 const NavLinks = props => (
   <nav {...props}>

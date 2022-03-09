@@ -7,7 +7,7 @@ import * as styles from './contact-form.module.less'
 const { Item } = Form
 const { TextArea } = Input
 
-const formStatuses = {
+const formState = {
   IDLE: 0,
   SUBMITTING: 1,
   SUCCESS: 2,
@@ -15,10 +15,10 @@ const formStatuses = {
 }
 
 const ContactForm = () => {
-  const [formStatus, setFormStatus] = useState(formStatuses.IDLE)
+  const [formStatus, setFormStatus] = useState(formState.IDLE)
 
   const handleFinish = async values => {
-    setFormStatus(formStatuses.SUBMITTING)
+    setFormStatus(formState.SUBMITTING)
 
     try {
       await fetch('/.netlify/functions/contact-form', {
@@ -29,14 +29,14 @@ const ContactForm = () => {
         },
       })
 
-      setFormStatus(formStatuses.SUCCESS)
+      setFormStatus(formState.SUCCESS)
     } catch (err) {
-      setFormStatus(formStatuses.ERROR)
+      setFormStatus(formState.ERROR)
     }
   }
 
-  if (formStatus === formStatuses.SUCCESS) return <Success />
-  else if (formStatus === formStatuses.ERROR) return <Error />
+  if (formStatus === formState.SUCCESS) return <Success />
+  else if (formStatus === formState.ERROR) return <Error />
 
   return (
     <Form
@@ -98,7 +98,7 @@ const ContactForm = () => {
         <Button
           type="ghost"
           htmlType="submit"
-          loading={formStatus === formStatuses.SUBMITTING}
+          loading={formStatus === formState.SUBMITTING}
         >
           Submit
         </Button>

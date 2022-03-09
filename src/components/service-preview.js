@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Rate, Typography } from 'antd'
+import { Typography } from 'antd'
 import * as styles from './service-preview.module.less'
 
 const { Paragraph } = Typography
@@ -16,10 +16,6 @@ const ServicePreview = ({ slug, title, caption, image }) => {
           className={styles.image}
         />
         <div className={styles.meta}>
-          <div className={styles.rating}>
-            <Rate count={1} defaultValue={5} disabled />
-            &nbsp;{5} Reviews
-          </div>
           <Paragraph className={styles.title}>{title}</Paragraph>
           <Paragraph type="secondary">{caption}</Paragraph>
         </div>

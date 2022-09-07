@@ -5,6 +5,7 @@ import BackgroundImage from 'gatsby-background-image'
 import { convertToBgImage } from 'gbimage-bridge'
 import { Row, Col, Button, Typography } from 'antd'
 import useServices from '../../hooks/use-services'
+import SEO from '../../components/seo'
 import Layout from '../../components/layout/layout'
 import ServicePreview from '../../components/service-preview'
 
@@ -69,5 +70,7 @@ const ServicesPage = () => {
     </Layout>
   )
 }
+
+export const Head = () => <SEO title="Services" />
 
 export default ServicesPage

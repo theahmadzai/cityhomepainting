@@ -1,5 +1,6 @@
 import React from 'react'
 import { Typography } from 'antd'
+import SEO from '../components/seo'
 import Layout from '../components/layout/layout'
 import Testimonials from '../components/testimonials'
 
@@ -26,5 +27,7 @@ const IndexPage = () => {
     </Layout>
   )
 }
+
+export const Head = () => <SEO title="Home" />
 
 export default IndexPage

@@ -1,5 +1,4 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
+import React, { Fragment } from 'react'
 import useSiteMetadata from '../hooks/use-sitemetadata'
 
 const SEO = ({ title, description, pathname }) => {
@@ -9,28 +8,29 @@ const SEO = ({ title, description, pathname }) => {
     description: defaultDescription,
   } = useSiteMetadata()
 
-  title ??= defaultTitle
   description ??= defaultDescription
   pathname ??= '/'
 
   return (
-    <Helmet
-      htmlAttributes={{ lang: 'en' }}
-      title={title}
-      titleTemplate={`%s | ${defaultTitle}`}
-      meta={[
-        { name: 'description', content: description },
-        { property: 'og:title', content: title },
-        { property: 'og:description', content: description },
-        { property: 'og:url', content: `${siteUrl}${pathname}` },
-        { property: 'og:type', content: 'website' },
-        { property: 'og:image', content: 'image' },
-        { name: 'twitter:card', content: 'summary' },
-        { name: 'twitter:title', content: title },
-        { name: 'twitter:description', content: description },
-        { name: 'twitter:image', content: 'image' },
-      ]}
-    />
+    <Fragment>
+      <title>
+        {title} | {defaultTitle}
+      </title>
+      <meta name="description" content={description} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content="image" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={siteUrl + pathname} />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="image" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet"
+      />
+    </Fragment>
   )
 }
 

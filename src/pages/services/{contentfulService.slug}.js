@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Row, Col, Rate, Typography, Avatar, List, Divider } from 'antd'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import SEO from '../../components/seo'
 import Layout from '../../components/layout/layout'
 import ReviewForm from '../../components/review-form'
 
@@ -28,10 +29,7 @@ export const query = graphql`
   }
 `
 
-export default function ServiceTemplate({
-  data: { service },
-  pageContext: { slug },
-}) {
+const Service = ({ data: { service }, pageContext: { slug } }) => {
   const { title, image } = service
   const [reviews, setReviews] = useState([])
 
@@ -102,3 +100,7 @@ export default function ServiceTemplate({
     </Layout>
   )
 }
+
+export const Head = ({ data: { service } }) => <SEO title={service.title} />
+
+export default Service

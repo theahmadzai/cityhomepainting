@@ -4,6 +4,7 @@ import { getImage, StaticImage } from 'gatsby-plugin-image'
 import BackgroundImage from 'gatsby-background-image'
 import { convertToBgImage } from 'gbimage-bridge'
 import { Row, Col, Typography, Button } from 'antd'
+import SEO from '../components/seo'
 import Layout from '../components/layout/layout'
 import ContactForm from '../components/contact-form'
 
@@ -63,5 +64,7 @@ const ContactPage = () => {
     </Layout>
   )
 }
+
+export const Head = () => <SEO title="Contact" />
 
 export default ContactPage

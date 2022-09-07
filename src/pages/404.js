@@ -1,5 +1,6 @@
 import React from 'react'
 import { Result, Button } from 'antd'
+import SEO from '../components/seo'
 import Layout from '../components/layout/layout'
 
 const NotFoundPage = () => {
@@ -18,5 +19,7 @@ const NotFoundPage = () => {
     </Layout>
   )
 }
+
+export const Head = () => <SEO title="Not Found" />
 
 export default NotFoundPage

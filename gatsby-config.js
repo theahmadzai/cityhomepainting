@@ -23,7 +23,6 @@ module.exports = {
         trackingId: 'nil',
       },
     },
-    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

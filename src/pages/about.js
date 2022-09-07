@@ -4,6 +4,7 @@ import { StaticImage, getImage } from 'gatsby-plugin-image'
 import BackgroundImage from 'gatsby-background-image'
 import { convertToBgImage } from 'gbimage-bridge'
 import { Row, Col, Typography, Tabs, Collapse } from 'antd'
+import SEO from '../components/seo'
 import Layout from '../components/layout/layout'
 
 const { Title, Paragraph } = Typography
@@ -147,5 +148,7 @@ const AboutPage = () => {
     </Layout>
   )
 }
+
+export const Head = () => <SEO title="About" />
 
 export default AboutPage

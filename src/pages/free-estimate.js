@@ -4,6 +4,7 @@ import { getImage } from 'gatsby-plugin-image'
 import BackgroundImage from 'gatsby-background-image'
 import { convertToBgImage } from 'gbimage-bridge'
 import { Typography } from 'antd'
+import SEO from '../components/seo'
 import Layout from '../components/layout/layout'
 import EstimateForm from '../components/estimate-form'
 
@@ -37,5 +38,7 @@ const FreeEstimatePage = () => {
     </Layout>
   )
 }
+
+export const Head = () => <SEO title="Free Estimate" />
 
 export default FreeEstimatePage

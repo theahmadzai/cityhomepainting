@@ -12,8 +12,8 @@ const useServices = () => {
             gatsbyImageData(
               layout: FULL_WIDTH
               placeholder: BLURRED
-              height: 250
-              width: 250
+              height: 300
+              width: 300
               formats: [AUTO, WEBP]
             )
           }
